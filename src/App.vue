@@ -1,15 +1,16 @@
 <template>
-  <div class="Nav">조건부 렌더링 네비게이션1</div>
-  <div class="Nav">조건부 렌더링 네비게이션2</div>
-  
-  <div class="Route">메인페이지</div>
-  <div class="Route">회원가입</div>
-  <div class="Route">문제풀기</div>      
-  
+  <the-header></the-header>
+  <router-view></router-view>
 </template>
 
 <script>
-export default {}
+import TheHeader from './components/nav/TheHeader.vue';
+
+export default {
+  components: {
+    TheHeader
+  }
+}
 </script>
 
 <style>
