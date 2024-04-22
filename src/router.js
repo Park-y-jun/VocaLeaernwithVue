@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import AuthLayout from './pages/AuthLayout.vue'
+import SignIn from "./pages/SignIn.vue";
+import SignUp from "./pages/SignUp.vue";
 import MainPage from "./pages/MainPage.vue";
 import VocaLearn from "./pages/VocaLearn.vue";
 
@@ -8,9 +9,10 @@ const router = createRouter({
   history: createWebHistory(),
   routes: [
     { path: "/", redirect: "/home" },
-    { path: "/auth", component: AuthLayout },
-    { path: "/home", component: MainPage },
-    { path: "/voca-learn", component: VocaLearn },
+    { path: "/sign-in", component: SignIn },
+    { path: "/sign-up", component: SignUp },
+    { path: "/home", component: MainPage, meta: { headerType: "main" } },
+    { path: "/voca-learn", component: VocaLearn, meta: { headerType: "sub" } },
   ],
 });
 
