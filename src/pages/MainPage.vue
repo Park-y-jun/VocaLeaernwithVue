@@ -39,6 +39,31 @@ export default {
       },
     ]
     }
+  },
+  mounted() {
+    this.$el.addEventListener('mousemove', this.handleEvent);
+    this.$el.addEventListener('click', this.handleEvent);
+    document.addEventListener('keydown', this.handleEvent);
+  },
+  beforeDestroy() {
+    this.$el.removeEventListener('mousemove', this.handleEvent);
+    this.$el.removeEventListener('click', this.handleEvent);
+    document.removeEventListener('keydown', this.handleEvent); 
+  },
+  methods: {
+    handleEvent() {
+      this.$router.push('/sign-in');
+      this.$el.removeEventListener('mousemove', this.handleEvent);
+      this.$el.removeEventListener('click', this.handleEvent);
+      document.removeEventListener('keydown', this.handleEvent); 
+    },
   }
 }
 </script>
+
+<style scoped>
+  .list__frame {
+    width: 100%;
+    height: 100%;
+  }
+</style>

@@ -24,12 +24,20 @@ export default {
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 html {
   font-family: sans-serif;
 }
 
 body {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 div {
