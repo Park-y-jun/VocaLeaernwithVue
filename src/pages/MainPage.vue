@@ -52,18 +52,13 @@ export default {
   },
   methods: {
     handleEvent() {
-      this.$router.push('/sign-in');
+      if (!this.$store.getters.loginState) {
+        this.$router.push('/sign-in');
       this.$el.removeEventListener('mousemove', this.handleEvent);
       this.$el.removeEventListener('click', this.handleEvent);
-      document.removeEventListener('keydown', this.handleEvent); 
+      document.removeEventListener('keydown', this.handleEvent)
+      }
     },
   }
 }
 </script>
-
-<style scoped>
-  .list__frame {
-    width: 100%;
-    height: 100%;
-  }
-</style>

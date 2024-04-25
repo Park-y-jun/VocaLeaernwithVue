@@ -1,11 +1,13 @@
 <template>
   <!-- <the-header v-if="!isLoggedIn"></the-header> -->
-  <the-header></the-header>
+  <the-header v-if="isLoggedIn"></the-header>
   <router-view></router-view>
 </template>
 
 <script>
 import TheHeader from './components/nav/TheHeader.vue';
+
+//const variable = import.meta.env.VITE_STR
 
 export default {
   components: {
@@ -15,6 +17,11 @@ export default {
     return {
       isLoggedIn: true
     }
+  },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.loginState
+    },
   }
 }
 </script>
