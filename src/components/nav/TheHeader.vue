@@ -8,7 +8,7 @@
       <base-button>단어장 추가</base-button>
     </div>
     <div class="header__mainPageLogout">
-      <base-button>로그아웃</base-button>
+      <base-button @click="logout">로그아웃</base-button>
     </div>
     </div>
 
@@ -29,6 +29,11 @@ export default {
   data() {
     return {
       isMainPage: true
+    }
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout')
     }
   }
 }
