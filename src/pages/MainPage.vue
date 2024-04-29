@@ -1,14 +1,20 @@
 <template>
   <section>
-    <div class="list__frame">
+    <div class="list__frame" v-if="!isDeckForm">
       <ul>
         <deck-list
           v-for="list in lists"
-          :key="list.id"
-          :name="list.name"
+          :key="list._id"
+          :name="list.listName"
         ></deck-list>
       </ul>
     </div>
+    <basic-form @submit.prevent="onSubmit" v-else>
+      <div class="form__control">
+        <input v-model="deckName" type="text" name="deckName" placeholder="단어장 이름을 입력하세요" required>
+      </div>
+      <base-button type="submit">제출</base-button>
+    </basic-form>
   </section>
 </template>
 
@@ -21,44 +27,42 @@ export default {
   },
   data() {
     return {
-      lists: [{
-        id: '1',
-        name: '리스트 1번'
-      },
-      {
-        id: '2',
-        name: '리스트 2번'
-      },
-      {
-        id: '3',
-        name: '리스트 3번'
-      },
-      {
-        id: '4',
-        name: '리스트 4번'
-      },
-    ]
+    deckName: '',
+
     }
   },
-  mounted() {
-    this.$el.addEventListener('mousemove', this.handleEvent);
-    this.$el.addEventListener('click', this.handleEvent);
-    document.addEventListener('keydown', this.handleEvent);
-  },
-  beforeDestroy() {
-    this.$el.removeEventListener('mousemove', this.handleEvent);
-    this.$el.removeEventListener('click', this.handleEvent);
-    document.removeEventListener('keydown', this.handleEvent); 
+  created() {
+  if (!this.$store.getters.loginState) {
+    this.$router.push('/sign-in');
+  } else {
+    const userKey = this.userInfo._id;
+    if (userKey) {
+      this.$store.dispatch('deck/fetchDecks', userKey);
+    }
+  }
+},
+
+  computed: {
+    isDeckForm() {
+      return this.$store.getters['is/isDeckForm']
+    },
+    userInfo() {
+      return this.$store.getters.user
+    },
+    lists() {
+      return this.$store.getters['deck/decks']
+    }
   },
   methods: {
-    handleEvent() {
-      if (!this.$store.getters.loginState) {
-        this.$router.push('/sign-in');
-      this.$el.removeEventListener('mousemove', this.handleEvent);
-      this.$el.removeEventListener('click', this.handleEvent);
-      document.removeEventListener('keydown', this.handleEvent)
-      }
-    },
+    async onSubmit() {
+      const userKey = this.userInfo._id
+
+      await this.$store.dispatch('deck/newDeck', { listName: this.deckName, user: userKey })
+      await this.$store.dispatch('deck/fetchDecks', userKey);
+
+      this.$store.dispatch('is/toggleDeckForm', false);
+      this.deckName = '';
+    }
   }
 }
 </script>

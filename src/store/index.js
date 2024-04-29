@@ -2,12 +2,16 @@ import { createStore } from "vuex";
 import axios from "axios";
 
 import { handleAxiosError } from "../utils/errorHandler";
-import router from '../router'
+import deckModule from './modules/deck'
+import isModule from './modules/is'
 
 const url = import.meta.env.VITE_BASE_URL;
 
 const store = createStore({
-  modules: {},
+  modules: {
+    deck: deckModule,
+    is: isModule
+  },
   state() {
     return {
       loginState: false,
@@ -34,7 +38,7 @@ const store = createStore({
       }
     },
 
-    async register({ commit }, payload) {
+    async register(_, payload) {
       try {
         await axios.post(`${url}/api/v2/user/sign-up`, payload);
       } catch (error) {

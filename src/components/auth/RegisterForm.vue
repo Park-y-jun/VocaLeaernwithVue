@@ -1,6 +1,6 @@
 <template>
   <section>
-    <base-form @submit.prevent="onSubmit">
+    <basic-form @submit.prevent="onSubmit">
       <div class="form__control">
           <h1>회원가입</h1>
         </div>
@@ -11,7 +11,7 @@
           <input v-model="password" name="password" type="password" placeholder="비밀번호" required>
         </div>
         <base-button type="submit">제출</base-button>
-    </base-form>
+    </basic-form>
   </section>
 </template>
 

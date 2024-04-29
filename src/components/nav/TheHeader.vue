@@ -5,7 +5,7 @@
       <base-button>Home</base-button>
     </div>
     <div class="header__mainPageCreateList">
-      <base-button>단어장 추가</base-button>
+      <base-button @click="toggleDeckForm">단어장 추가</base-button>
     </div>
     <div class="header__mainPageLogout">
       <base-button @click="logout">로그아웃</base-button>
@@ -34,6 +34,9 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch('logout')
+    },
+    toggleDeckForm() {
+      this.$store.dispatch('is/activeDeckForm', true)
     }
   }
 }

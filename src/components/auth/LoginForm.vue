@@ -1,6 +1,6 @@
 <template>
   <section>
-    <base-form @submit.prevent="onSubmit">
+    <basic-form @submit.prevent="onSubmit">
       <div class="form__control">
           <h1>로그인</h1>
         </div>
@@ -14,7 +14,7 @@
         <router-link to="/sign-up">
           <base-button>회원가입</base-button>
         </router-link>
-    </base-form>
+    </basic-form>
   </section>
 </template>
 
