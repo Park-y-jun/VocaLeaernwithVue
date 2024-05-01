@@ -53,4 +53,3 @@ export default {
   }
 }
 
-//https://wrtn.ai/chat/u/65d591e80c06023ae70af73a/c/661569320b45829743a93612?type=u

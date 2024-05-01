@@ -1,24 +1,24 @@
 <template>
   <li class="list__element">
-    <div class="list__name">
-      <h1>{{ name }}</h1>
-    </div>
-    <div class="list__button">
-      <base-button>단어 추가</base-button>
-      <base-button @click="navigate">학습 시작</base-button>
-    </div> 
+   <div class="list__name">    
+    <h1>{{ name }}</h1>
+   </div>
+   <div class="list__button">
+     <base-button  @click="navigate('add')">단어 추가</base-button>
+     <base-button @click="navigate('voca-learn')">학습 시작</base-button>
+   </div> 
   </li>
 </template>
 
 <script>
 export default {
   props: {
-    id: String,
+    deckId: String,
     name: String
   },
   methods: {
-    navigate() {
-      this.$router.push('/voca-learn');
+    navigate(targetPath) {
+      this.$router.push(`/${targetPath}/${this.deckId}`);
     }
   }
 }

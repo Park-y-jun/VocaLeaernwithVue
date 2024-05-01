@@ -11,10 +11,5 @@ export default {
   components: {
     RegisterForm
   },
-  data() {
-    return {
-
-    }
-  }
 }
 </script>

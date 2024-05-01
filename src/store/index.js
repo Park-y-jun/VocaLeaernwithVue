@@ -4,13 +4,15 @@ import axios from "axios";
 import { handleAxiosError } from "../utils/errorHandler";
 import deckModule from './modules/deck'
 import isModule from './modules/is'
+import questionModule from "./modules/question";
 
 const url = import.meta.env.VITE_BASE_URL;
 
 const store = createStore({
   modules: {
     deck: deckModule,
-    is: isModule
+    is: isModule,
+    question: questionModule,
   },
   state() {
     return {
@@ -51,15 +53,15 @@ const store = createStore({
       if (accessToken) {
         commit("SET_LOGIN_STATE", true);
       } else {
-        commit("SET_LOGIN_STATE", false); 
+        commit("SET_LOGIN_STATE", false);
       }
     },
-    
+
     logout({ commit }, _) {
       localStorage.removeItem("accessToken");
       commit("SET_LOGIN_STATE", false);
       commit("SET_USER", null);
-    }
+    },
   },
   getters: {
     loginState: (state) => {

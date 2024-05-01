@@ -2,7 +2,9 @@
   <header>
     <div class="header__mainPage" v-if="$route.meta.headerType === 'main'">
     <div class="header__mainPageGoHome">
-      <base-button>Home</base-button>
+      <router-link to="/">
+        <base-button>Home</base-button>
+      </router-link>
     </div>
     <div class="header__mainPageCreateList">
       <base-button @click="toggleDeckForm">단어장 추가</base-button>
@@ -14,7 +16,9 @@
 
     <div class="header__vocaLearn" v-else>
     <div class="header__vocaLearnGoHome">
-      <base-button>Home</base-button>
+      <router-link to="/">
+        <base-button>Home</base-button>
+      </router-link>
     </div>
     <div class="header__vocaLearnEdit">
       <base-button>단어 편집</base-button>
@@ -34,9 +38,10 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch('logout')
+      this.$router.push('/sign-in')
     },
     toggleDeckForm() {
-      this.$store.dispatch('is/activeDeckForm', true)
+      this.$store.dispatch('is/toggleDeckForm', true)
     }
   }
 }

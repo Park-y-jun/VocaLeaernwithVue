@@ -5,6 +5,7 @@
         <deck-list
           v-for="list in lists"
           :key="list._id"
+          :deckId="list._id"
           :name="list.listName"
         ></deck-list>
       </ul>

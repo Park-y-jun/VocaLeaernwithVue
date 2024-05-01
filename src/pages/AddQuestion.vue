@@ -1,15 +1,16 @@
 <template>
   <section>
-    <login-form></login-form>
+    <add-form></add-form>
   </section>
 </template>
 
 <script>
-import LoginForm from '../components/auth/LoginForm.vue';
+import AddForm from '../components/question/AddForm.vue';
 
 export default {
   components: {
-    LoginForm
+    AddForm
   },
+  
 }
 </script>
