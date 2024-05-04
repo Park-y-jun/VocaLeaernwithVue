@@ -1,5 +1,6 @@
 <template>
  <section>
+
   <div class="vocaLearn__running" v-if="!isFinished && questions.length > 0">
     <div v-if="currentQuestion"  @click="toggleAnswer">
       <div class="vocaLearn__question">
@@ -10,14 +11,17 @@
       </div>
     </div>
   </div>
+
   <div class="vocaLearn__end" v-else>
     <h1>오늘의 학습이 끝났습니다</h1>
   </div>
+
   <div class="vocaLearn__btn">
     <base-button @click="nextQuestion('EASY')">쉬움</base-button>
     <base-button @click="nextQuestion('NORMAL')">중간</base-button>
     <base-button @click="nextQuestion('HARD')">어려움</base-button>
   </div>
+
  </section>  
 </template>
 
@@ -39,9 +43,11 @@ export default {
     deckId() {
       return this.$route.params.deckId
     },
+
     questions() {
       return this.$store.getters['question/questions']
     },
+
     currentQuestion() {
       return this.questions.length > 0 ? this.questions[this.currentIndex] : null;
     }
@@ -60,7 +66,6 @@ export default {
        } else {
           this.isFinished = true;
         }
-
         this.showAnswer = false;   
     },
 
@@ -99,7 +104,7 @@ export default {
 }
 
 .vocaLearn__answer {
-  background-color: #e9ecef; /* 답변 부분의 배경색을 다르게 설정 */
+  background-color: #e9ecef;
   
 }
 

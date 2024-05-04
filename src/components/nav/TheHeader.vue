@@ -1,5 +1,6 @@
 <template>
   <header>
+    
     <div class="header__mainPage" v-if="$route.meta.headerType === 'main'">
       <div class="header__mainPageGoHome">
         <router-link to="/">
@@ -32,8 +33,8 @@
         </router-link>
       </div>
     </div>
+
   </header>
-  
 </template>
 
 <script>
@@ -43,16 +44,19 @@ export default {
       isMainPage: true
     }
   },
+
   computed: {
     isDeckForm() {
       return this.$store.getters['is/isDeckForm']
     }
   },
+
   methods: {
     logout() {
       this.$store.dispatch('logout')
       this.$router.push('/sign-in')
     },
+
     toggleDeckForm() {
       this.$store.dispatch('is/toggleDeckForm', true)
     }
@@ -85,6 +89,4 @@ header {
 .header__vocaLearnGoHome{
   margin-right: 600px;
 }
-
-
 </style>

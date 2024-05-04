@@ -6,6 +6,7 @@
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 button { 
   width: 150px;
   height: 80px;

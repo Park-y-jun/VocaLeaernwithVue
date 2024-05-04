@@ -1,8 +1,9 @@
 <template>
   <li class="list__element">
    <div class="list__name">    
-    <h1>{{ name }}</h1>
+     <h1>{{ name }}</h1>
    </div>
+
    <div class="list__button">
      <base-button  @click="navigate('add')">단어 추가</base-button>
      <base-button @click="navigate('voca-learn')">학습 시작</base-button>
@@ -16,6 +17,7 @@ export default {
     deckId: String,
     name: String
   },
+
   methods: {
     navigate(targetPath) {
       this.$router.push(`/${targetPath}/${this.deckId}`);

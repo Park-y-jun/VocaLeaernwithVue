@@ -1,14 +1,17 @@
 <template>
   <section>
+
     <basic-form @submit.prevent="onSubmit">
       <div class="form__input">      
         <input v-model="question" type="text" id="question" placeholder="단어 문제를 입력하세요" required>
         <input v-model="answer" type="text" id="answer" placeholder="정답을 입력하세요" required>    
       </div>
+      
       <div class="form__btn">
         <base-button type="submit">단어 추가</base-button>
       </div>
     </basic-form>
+
   </section>
 </template>
 

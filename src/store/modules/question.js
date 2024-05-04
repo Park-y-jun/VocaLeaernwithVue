@@ -10,14 +10,17 @@ export default {
       questions: [],
     };
   },
+
   mutations: {
     SET_QUESTIONS(state, payload) {
       state.questions = payload;
     },
   },
+
   actions: {
     async newQuestion(_, payload) {
       const token = localStorage.getItem("accessToken");
+
       try {
         await axios.post(`${url}/api/v2/word`, payload, {
           headers: {
@@ -31,6 +34,7 @@ export default {
 
     async fetchQuestion({ commit }, deckId) {
       const token = localStorage.getItem("accessToken");
+
       try {
         const questions = await axios.get(`${url}/api/v2/word/list_id/${deckId}`, {
           headers: {
@@ -45,6 +49,7 @@ export default {
 
     async modifyDifficulty(_, payload) {
       const token = localStorage.getItem("accessToken");
+
       try {
         await axios.patch(
           `${url}/api/v2/word/list_id/${payload.deckId}/word_id/${payload.questionId}`,
@@ -62,6 +67,7 @@ export default {
       }
     },
   },
+  
   getters: {
     questions: (state) => {
       return state.questions;

@@ -1,5 +1,6 @@
 <template>
   <section>
+
     <basic-form @submit.prevent="onSubmit">
       <div class="form__control">
           <h1>로그인</h1>
@@ -10,6 +11,7 @@
         <div class="form__control">
           <input v-model="password" type="password" name="password" placeholder="비밀번호" required>
         </div>
+
         <div class="form__btn">
           <base-button type="submit">로그인</base-button>
         <router-link to="/sign-up">
@@ -17,6 +19,7 @@
         </router-link>
         </div>
     </basic-form>
+
   </section>
 </template>
 
@@ -28,29 +31,24 @@ export default {
       password: '',
     }
   },
+
   computed: {
     isLoggedIn() {
       return this.$store.getters.loginState
     },
+
     userInfo() {
       return this.$store.getters.user
     }
   },
+
    methods: {
-    async onSubmit() {
-      try {
-        await this.$store.dispatch('login', {
+    async onSubmit() {   
+      await this.$store.dispatch('login', {
         id: this.userId,
         password: this.password
       })
-      console.log(this.isLoggedIn)
-      console.log(this.userInfo)
-      this.$router.push('/home')
-      } catch(error) {
-        
-        console.log(error)
-      }
-     
+      this.$router.push('/home')     
     }
   }
 }

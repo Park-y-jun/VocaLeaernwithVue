@@ -10,14 +10,17 @@ export default {
       decks: [],
     }
   },
+
   mutations: {
     SET_DECKS(state, payload) {
       state.decks = payload
     }
   },
+
   actions: {
    async newDeck(_, payload) {
-    const token = localStorage.getItem("accessToken"); 
+    const token = localStorage.getItem("accessToken");
+
     try {
       await axios.post(`${url}/api/v2/list`, payload,
         { 
@@ -33,6 +36,7 @@ export default {
 
    async fetchDecks({ commit }, userId) {
     const token = localStorage.getItem("accessToken");
+
     try {
      const decks = await axios.get(`${url}/api/v2/list/user_id/${userId}`,
       {
@@ -46,6 +50,7 @@ export default {
     }
    }
   },
+  
   getters: {
     decks: (state) => {
       return state.decks;

@@ -14,12 +14,14 @@ const store = createStore({
     is: isModule,
     question: questionModule,
   },
+
   state() {
     return {
       loginState: false,
       user: null,
     };
   },
+
   mutations: {
     SET_LOGIN_STATE(state, payload) {
       state.loginState = payload;
@@ -28,6 +30,7 @@ const store = createStore({
       state.user = payload;
     },
   },
+
   actions: {
     async login({ commit }, payload) {
       try {
@@ -63,6 +66,7 @@ const store = createStore({
       commit("SET_USER", null);
     },
   },
+  
   getters: {
     loginState: (state) => {
       return state.loginState;

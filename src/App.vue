@@ -51,9 +51,11 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 div {
   text-align: center;
 }
+
 a {
   text-decoration: none;
   color: black;

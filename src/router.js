@@ -20,14 +20,13 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  
   const isLoggedIn = store.getters.loginState;
+  
   if((to.name === 'signin' || to.name === 'signup') && isLoggedIn) {
     next({ path: "/home" });
   } else {
      next();
   }
-
 })
 
 export default router;

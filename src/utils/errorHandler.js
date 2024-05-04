@@ -17,6 +17,7 @@ export function handleAxiosError(error) {
       default:
         alert("서버 오류가 발생했습니다. 나중에 다시 시도해 주세요.");
     }
+    
   } else if (error.request) {
     alert("서버로부터 응답을 받지 못했습니다. 네트워크 연결을 확인해 주세요.");
   } else {

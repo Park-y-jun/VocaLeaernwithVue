@@ -1,5 +1,6 @@
 <template>
   <section>
+
     <div class="list__frame" v-if="!isDeckForm">
       <ul>
         <deck-list
@@ -18,8 +19,9 @@
       <div class="form__btn">
         <base-button type="submit">제출</base-button>
         <base-button @click="closeForm">닫기</base-button>
-      </div>
-    </basic-form>
+      </div>   
+    </basic-form> 
+
   </section>
 </template>
 
@@ -36,6 +38,7 @@ export default {
 
     }
   },
+
   created() {
   if (!this.$store.getters.loginState) {
     this.$router.push('/sign-in');
@@ -51,13 +54,16 @@ export default {
     isDeckForm() {
       return this.$store.getters['is/isDeckForm']
     },
+
     userInfo() {
       return this.$store.getters.user
     },
+    
     lists() {
       return this.$store.getters['deck/decks']
     }
   },
+
   methods: {
     async onSubmit() {
       const userKey = this.userInfo._id
@@ -68,6 +74,7 @@ export default {
       this.$store.dispatch('is/toggleDeckForm', false);
       this.deckName = '';
     },
+
     closeForm() {
       this.$store.dispatch('is/toggleDeckForm', false);
     }
