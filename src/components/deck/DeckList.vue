@@ -27,15 +27,35 @@ export default {
 <style scoped>
 .list__element {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; 
+  align-items: center; 
+  border-bottom: 1px solid #bcbcbc; 
+  padding: 20px;
+  margin-top: 80px; 
 }
-.list__name {
-  width: 50%;  
-  margin-left: 200px;
+
+
+.list__element:hover {
+  background-color: #f5f5f5; 
+}
+
+.list__name h1 {
+  width: auto; 
+  margin-left: 100px; 
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .list__button {
-  width: 300px;
-  margin-right: 400px;
+  display: flex;
+  gap: 10px;
+  width: auto; 
+  margin-right: 100px; 
+}
+
+.list__button base-button {
+  flex-grow: 1; 
+  margin: 0 8px; 
 }
 </style>

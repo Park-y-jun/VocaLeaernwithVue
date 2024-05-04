@@ -10,7 +10,9 @@
         <div class="form__control">
           <input v-model="password" name="password" type="password" placeholder="비밀번호" required>
         </div>
-        <base-button type="submit">제출</base-button>
+        <div class="form__btn">
+          <base-button type="submit">제출</base-button>
+        </div>    
     </basic-form>
   </section>
 </template>
@@ -24,26 +26,34 @@ export default {
     }
   },
   methods: {
-    async onSubmit() {
-      try {
+    async onSubmit() {    
         await this.$store.dispatch('register', {
         id: this.userId,
         password: this.password
       })
-      this.$router.push('/sign-in')
-      } catch(error) {
-        //http 에러 이외의 프론트엔드적 에러처리
-        console.log(error)
-      }
-     
+      
+      this.$router.push('/sign-in')         
     }
   }
 }
 </script>
 
 <style scoped>
-  input {
-  width: 300px;
-  height: 30px;
-}
+  .form__control > h1 {
+    font-size: 27px;
+  }
+
+  .form__control > input {
+    margin: 5px;
+    height: 40px;
+    width: 300px;
+  }
+
+  .form__btn {
+    margin-top: 10px;
+  }
+
+  .form__btn > button {
+    margin: 10px;
+  }
 </style>

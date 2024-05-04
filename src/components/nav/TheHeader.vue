@@ -1,28 +1,36 @@
 <template>
   <header>
     <div class="header__mainPage" v-if="$route.meta.headerType === 'main'">
-    <div class="header__mainPageGoHome">
-      <router-link to="/">
-        <base-button>Home</base-button>
-      </router-link>
-    </div>
-    <div class="header__mainPageCreateList">
-      <base-button @click="toggleDeckForm">단어장 추가</base-button>
-    </div>
-    <div class="header__mainPageLogout">
-      <base-button @click="logout">로그아웃</base-button>
-    </div>
+      <div class="header__mainPageGoHome">
+        <router-link to="/">
+          <nav-button>Home</nav-button>
+        </router-link>
+      </div>
+      <div class="header__mainPageCreateList">
+        <nav-button @click="toggleDeckForm">New deck</nav-button>
+      </div>
+      <div class="header__mainPageLogout">
+        <nav-button @click="logout">Logout</nav-button>
+      </div>
     </div>
 
-    <div class="header__vocaLearn" v-else>
-    <div class="header__vocaLearnGoHome">
-      <router-link to="/">
-        <base-button>Home</base-button>
-      </router-link>
+    <div class="header__vocaLearn" v-else-if="$route.meta.headerType === 'voca'">
+      <div class="header__vocaLearnGoHome">
+        <router-link to="/">
+          <nav-button>Home</nav-button>
+        </router-link>
+      </div>
+      <div class="header__vocaLearnEdit">
+        <nav-button>단어 편집</nav-button>
+      </div>
     </div>
-    <div class="header__vocaLearnEdit">
-      <base-button>단어 편집</base-button>
-    </div>
+
+    <div class="header__Form" v-else>
+      <div class="header__FormGoHome">
+        <router-link to="/">
+          <nav-button>Home</nav-button>
+        </router-link>
+      </div>
     </div>
   </header>
   
@@ -35,6 +43,11 @@ export default {
       isMainPage: true
     }
   },
+  computed: {
+    isDeckForm() {
+      return this.$store.getters['is/isDeckForm']
+    }
+  },
   methods: {
     logout() {
       this.$store.dispatch('logout')
@@ -43,11 +56,15 @@ export default {
     toggleDeckForm() {
       this.$store.dispatch('is/toggleDeckForm', true)
     }
-  }
+  },
 }
 </script>
 
 <style scoped>
+header {
+  margin: 20px 0;
+}
+
 /* 메인페이지 nav */
 .header__mainPage {
   display: flex;

@@ -14,8 +14,8 @@ const router = createRouter({
     { path: "/sign-in", component: SignIn, name: "signin" },
     { path: "/sign-up", component: SignUp, name: "signup" },
     { path: "/home", component: MainPage, meta: { headerType: "main" } },
-    { path: "/voca-learn/:deckId", component: VocaLearn, meta: { headerType: "sub" }, name: 'vocaLearn'},
-    { path: "/add/:deckId", component: AddQuestion, name: "add" },
+    { path: "/voca-learn/:deckId", component: VocaLearn, meta: { headerType: "voca" }, name: "vocaLearn" },
+    { path: "/add/:deckId", component: AddQuestion, meta: { headerType: "add" }, name: "add" },
   ],
 });
 

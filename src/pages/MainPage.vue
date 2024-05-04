@@ -10,11 +10,15 @@
         ></deck-list>
       </ul>
     </div>
+
     <basic-form @submit.prevent="onSubmit" v-else>
-      <div class="form__control">
+      <div class="form__input">
         <input v-model="deckName" type="text" name="deckName" placeholder="단어장 이름을 입력하세요" required>
       </div>
-      <base-button type="submit">제출</base-button>
+      <div class="form__btn">
+        <base-button type="submit">제출</base-button>
+        <base-button @click="closeForm">닫기</base-button>
+      </div>
     </basic-form>
   </section>
 </template>
@@ -63,7 +67,30 @@ export default {
 
       this.$store.dispatch('is/toggleDeckForm', false);
       this.deckName = '';
+    },
+    closeForm() {
+      this.$store.dispatch('is/toggleDeckForm', false);
     }
   }
 }
 </script>
+
+<style scoped>
+  .form__input {
+    margin-top: 60px
+  }
+ 
+  .form__input > input {
+    margin: 5px;
+    height: 40px;
+    width: 300px;
+  }
+
+  .form__btn {
+    margin-top: 20px;
+  }
+
+  .form__btn > button {
+    margin: auto 30px;
+  }
+</style>

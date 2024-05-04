@@ -20,9 +20,11 @@
   padding: 20px;
   max-width: 500px;
   width: 100%;
+  height: 300px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   animation: modalFadeIn 0.5s ease-out;
+  margin-bottom: 100px; 
 }
 
 .form__container > * {

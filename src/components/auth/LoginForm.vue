@@ -10,10 +10,12 @@
         <div class="form__control">
           <input v-model="password" type="password" name="password" placeholder="비밀번호" required>
         </div>
-        <base-button type="submit">제출</base-button>
+        <div class="form__btn">
+          <base-button type="submit">로그인</base-button>
         <router-link to="/sign-up">
           <base-button>회원가입</base-button>
         </router-link>
+        </div>
     </basic-form>
   </section>
 </template>
@@ -55,8 +57,21 @@ export default {
 </script>
 
 <style scoped>
-  input {
-  width: 300px;
-  height: 30px;
-}
+  .form__control > h1 {
+    font-size: 27px;
+  }
+
+  .form__control > input {
+    margin: 5px;
+    height: 40px;
+    width: 300px;
+  }
+
+  .form__btn {
+    margin-top: 10px;
+  }
+
+  .form__btn > button {
+    margin: 10px;
+  }
 </style>
