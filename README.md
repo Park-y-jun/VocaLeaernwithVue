@@ -39,8 +39,6 @@ MongoDB Atlas
 ```
   $ npm run vocaLearn
 ```  
-5.  테스트
-- 설치가 완료된 후 테스트를 진행합니다. test아이디/비밀번호: good123/password1234
 ## 디렉토리 구조
 ```
 src
@@ -77,5 +75,5 @@ src
  ┣ main.js
  ┗ router.js
 ```
-https://github.com/Park-y-jun/VocaLeaernwithVue/assets/112556759/69122ba8-8e2e-4fef-b88e-4f2e4a865190
-![로그인](https://github.com/Park-y-jun/VocaLeaernwithVue/assets/112556759/42efc0f8-82da-4d62-9cce-6ff9dce5da31)
+## 주요기능 시연
+[시연 비디오](https://github.com/Park-y-jun/VocaLeaernwithVue/assets/112556759/9b25aadf-0c7a-4c0d-9668-6e54adb1e62c)
