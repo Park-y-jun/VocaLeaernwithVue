@@ -75,5 +75,18 @@ src
  ┣ main.js
  ┗ router.js
 ```
-## 주요기능 시연
+## 주요기능 
+### 단어 문제 
 [시연 비디오](https://github.com/Park-y-jun/VocaLeaernwithVue/assets/112556759/9b25aadf-0c7a-4c0d-9668-6e54adb1e62c)
+
+- 단어장에 단어 문제를 저장하고 암기 학습을 진행할 수 있습니다.
+- '쉬움', '중간', '어려움' 난이도 선택에 따라서 단어 문제의 반복 출제 시기가 바뀝니다. (쉬움: 3일 이후, 중간: 2일 이후, 어려움: 1일 이후)
+___
+### 회원가입 / 로그인
+[시연 비디오](https://github.com/Park-y-jun/VocaLeaernwithVue/assets/112556759/f29853a7-1ee2-4c1f-b84e-38a54564b5bd)
+- 루트 URL에 접속하면 '/sign-in' 으로 리다이렉트 되고 회원가입 / 로그인 기능을 통해서 메인페이지로 접속 할 수 있습니다.
+- 사용자의 로그인 상태는 로그인 후 발급되는 토큰을 로컬스토리지에 보관하여서 확인 가능합니다.
+___
+### 단어장 추가/ 단어 문제 추가
+[시연 비디오](https://github.com/Park-y-jun/VocaLeaernwithVue/assets/112556759/cd7bc0d2-e885-4e1e-9493-4fef27d4ecc2)
+- newdeck 버튼을 이용해 단어장을 생성하고, 단어 문제를 추가할 수 있습니다.
