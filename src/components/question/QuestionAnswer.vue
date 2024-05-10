@@ -77,6 +77,8 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@600&display=swap');
+
 .vocaLearn__running, .vocaLearn__end {
   margin-top: 50px;
   height: 50vh;
@@ -89,6 +91,13 @@ export default {
 
 .vocaLearn__running div, .vocaLearn__end h1 {
   margin: 20px 0;
+}
+
+.vocaLearn__question {
+  font-family: "Noto Sans JP", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 .vocaLearn__question, .vocaLearn__answer {
