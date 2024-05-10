@@ -2,7 +2,7 @@
   <section>
 
     <div class="list__frame" v-if="!isDeckForm">
-      <ul>
+      <ul v-if="lists && lists.length > 0">
         <deck-list
           v-for="list in lists"
           :key="list._id"
@@ -10,9 +10,13 @@
           :name="list.listName"
         ></deck-list>
       </ul>
+
+      <div class="list__noList" v-else>
+        <h1>New Deck 버튼을 눌러서 단어장을 만드세요</h1>
+      </div>
     </div>
 
-    <basic-form @submit.prevent="onSubmit" v-else>
+    <basic-form @submit.prevent="onSubmit" v-if="isDeckForm">
       <div class="form__input">
         <input v-model="deckName" type="text" name="deckName" placeholder="단어장 이름을 입력하세요" required>
       </div>
@@ -35,7 +39,6 @@ export default {
   data() {
     return {
     deckName: '',
-
     }
   },
 
@@ -83,6 +86,9 @@ export default {
 </script>
 
 <style scoped>
+  .list__noList{
+    margin-top: 100px;
+  }
   .form__input {
     margin-top: 60px
   }
