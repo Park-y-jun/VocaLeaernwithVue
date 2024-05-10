@@ -90,3 +90,7 @@ ___
 ### 단어장 추가/ 단어 문제 추가
 [시연 비디오](https://github.com/Park-y-jun/VocaLeaernwithVue/assets/112556759/cd7bc0d2-e885-4e1e-9493-4fef27d4ecc2)
 - newdeck 버튼을 이용해 단어장을 생성하고, 단어 문제를 추가할 수 있습니다.
+## Vuex 전역관리
+![vuex](https://github.com/Park-y-jun/VocaLeaernwithVue/assets/112556759/8b8c53fc-1a93-4968-aa2e-5697f6756480)
+- 어플리케이션의 핵심 객체 user, deck, question의 데이터를 모듈화 컴포넌트에서 전역적으로 상태관리 할 수 있도록 구성 했습니다.
+
